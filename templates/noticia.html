@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a class="back" href="/">← Volver</a>
+
+<article class="detail">
+  <h1 class="h1">{{ item.titulo }}</h1>
+
+  {% if item.imagen_url %}
+    <img class="hero" src="{{ item.imagen_url }}" alt="Imagen noticia" />
+  {% endif %}
+
+  <section class="audio">
+    <h3 class="h3">Audio (Quechua)</h3>
+    <audio controls preload="none" src="/audio/{{ item.audio_filename }}"></audio>
+    <p class="muted small">Archivo: {{ item.audio_filename }}</p>
+  </section>
+
+  <section class="text">
+    <p class="body">{{ item.texto }}</p>
+  </section>
+</article>
+
+{% endblock %}

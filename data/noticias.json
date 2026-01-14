@@ -1,0 +1,16 @@
+[
+  {
+    "id": "n1",
+    "titulo": "Allin p'unchay willay",
+    "texto": "Kay willayqa ... (quechua)",
+    "imagen": "https://example.com/foto.jpg",
+    "audio": "audio/n1.mp3"
+  },
+  {
+    "id": "n2",
+    "titulo": "Willay iskay",
+    "texto": "Huk willay ...",
+    "imagen": "https://example.com/foto2.jpg",
+    "audio": "audio/n2.mp3"
+  }
+]

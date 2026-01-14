@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="h1">Willaykuna (Quechua)</h1>
+
+{% if not news %}
+  <p class="muted">No hay noticias aún. Revisa el JSON en C:\Compartido\quechua_texto</p>
+{% endif %}
+
+<div class="grid">
+  {% for n in news %}
+    <article class="card">
+      <a href="/noticia/{{ n.id }}" class="card-link">
+        <div class="thumb">
+          {% if n.imagen_url %}
+            <img src="{{ n.imagen_url }}" alt="Imagen noticia" loading="lazy" />
+          {% else %}
+            <div class="noimg">Sin imagen</div>
+          {% endif %}
+        </div>
+
+        <div class="card-body">
+          <h2 class="h2">{{ n.titulo }}</h2>
+          <p class="excerpt">
+            {{ (n.texto or "")[:160] }}{% if (n.texto or "")|length > 160 %}...{% endif %}
+          </p>
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+</div>
+
+{% endblock %}
