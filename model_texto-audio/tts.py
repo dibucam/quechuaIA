@@ -1,0 +1,1 @@
+python3 -m TTS.bin.train_tts --config_path /home/ubuntu/tts_project/tts/config_vits_quechua.json

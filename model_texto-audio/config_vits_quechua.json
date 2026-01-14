@@ -1,0 +1,64 @@
+{
+    "model": "vits",
+    "run_name": "vits_quechua",
+    "output_path": "/home/ubuntu/tts_project/tts/output",
+    
+    "audio": {
+        "sample_rate": 22050,
+        "hop_length": 256,
+        "win_length": 1024,
+        "fft_size": 1024,
+        "mel_fmin": 0,
+        "mel_fmax": 11025
+    },
+    
+    "datasets": [
+        {
+            "formatter": "ljspeech",
+            "path": "/home/ubuntu/tts_project/data/quechua_tts",
+            "meta_file_train": "metadata.csv",
+            "meta_file_val": "metadata.csv"
+        }
+    ],
+    
+    "text": {
+        "text_cleaner": "basic_cleaners",
+        "use_phonemes": false
+    },
+    "characters": {
+        "pad": "_",
+        "eos": "~",
+        "bos": "^",
+        "blank": "<BLNK>",
+        "characters": "abcdefghijklmnopqrstuvwxyzáéíóúñABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÑ",
+        "punctuations": "!¡'(),-.:;¿?´’"
+    },
+        
+    "use_speaker_embedding": false,
+    "use_language_embedding": false,
+    
+    "model_args": {
+        "num_chars": 128,
+        "out_channels": 513,
+        "spec_segment_size": 48
+    },
+    
+    "training": {
+        "batch_size": 32,
+        "eval_batch_size": 16,
+		"num_loader_workers": 4,
+		"persistent_workers": true,
+        "epochs": 600,
+		"eval_step": 500,
+        "mixed_precision": true,		
+        "learning_rate": 0.0002,
+        "print_step": 100,
+        "save_step": 1000,
+        "save_n_checkpoints": 5,
+        "save_checkpoints": true
+    },
+    
+    "eval": {
+        "eval_split_size": 0.1
+    }
+}
